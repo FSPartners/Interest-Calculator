@@ -119,29 +119,22 @@ footer {
     background: #fff;
     color: #000;
   }
-  form, .center, header, footer {
-    display: all;
+
+  /* Hide only the print button and popup if any */
+  .center button, .popup, .close {
+    display: none !important;
   }
-  #results {
-    display: block;
-    margin-top: 0;
+
+  /* Show everything else */
+  header, form, #results, footer {
+    display: block !important;
   }
+
   table {
     font-size: 12px;
   }
 }
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: Arial, sans-serif;
-}
-table, th, td {
-  border: 1px solid #333;
-}
-th, td {
-  padding: 8px;
-  text-align: center;
-}
+
 @media (max-width: 600px) {
   .logo {
     width: 100px;
