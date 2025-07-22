@@ -7,9 +7,15 @@ body {
 }
 header .header-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
+  text-align: center;
 }
+.principal-row {
+  margin-bottom: 10px;
+}
+
 .logo {
   width: 120px;
   height: auto;
@@ -26,23 +32,36 @@ input, select {
   border-radius: 5px;
 }
 button {
-  padding: 10px 20px;
-  background-color: #043434;
+  padding: 12px 24px;
+  background: #043434;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
 }
 button:hover {
-  background-color: #065656;
+  background: #065656;
 }
-#results {
+
+#results table {
+  width: 100%;
+  border-collapse: collapse;
   margin-top: 20px;
+  font-family: Arial, sans-serif;
 }
-.center {
+#results th, #results td {
+  border: 1px solid #043434;
+  padding: 8px;
   text-align: center;
-  margin-top: 20px;
 }
+#results th {
+  background-color: #d2f0f0;
+  color: #043434;
+}
+#results tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
 .popup {
   display: none;
   position: fixed;
@@ -83,10 +102,21 @@ footer {
 .sub-heading {
   text-align: center;
   font-size: 1.2em;
-
-.media print {
-  form, .center, #printBtn {
-  display: none;
+}
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+  form, .center, header, footer {
+    display: none;
+  }
+  #results {
+    display: block;
+    margin-top: 0;
+  }
+  table {
+    font-size: 12px;
   }
 }
 table {
@@ -100,5 +130,17 @@ table, th, td {
 th, td {
   padding: 8px;
   text-align: center;
+}
+@media (max-width: 600px) {
+  .logo {
+    width: 100px;
+    margin-bottom: 10px;
+  }
+  .input-group {
+    margin-bottom: 20px;
+  }
+  button {
+    font-size: 16px;
+  }
 }
 }
