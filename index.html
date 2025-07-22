@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MSME Interest Calculator - FS & Partners</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>MSME Interest Calculator</h1>
+        <p>Developed by <strong>FS & Partners (Advocates & Solicitors), Delhi</strong></p>
+    </header>
+
+    <form id="interestForm">
+        <div class="input-group">
+            <label for="bankRate">Enter Current Bank Rate (%):</label>
+            <input type="number" step="0.01" id="bankRate" name="bankRate" required>
+            <a href="https://www.bankbazaar.com/home-loan/repo-rate.html" target="_blank">Check Bank Rate *</a>
+        </div>
+
+        <div id="principalEntries">
+            <div class="entry">
+                <label>Principal Amount (₹):</label>
+                <input type="number" class="principal" required>
+
+                <label>From Date:</label>
+                <input type="date" class="startDate" required>
+            </div>
+        </div>
+
+        <button type="button" onclick="addEntry()">+ Add More</button>
+
+        <div class="input-group">
+            <label for="endDate">Interest Till Date:</label>
+            <input type="date" id="endDate" required>
+        </div>
+
+        <div class="input-group">
+            <label>Interest Type:</label>
+            <select id="interestType">
+                <option value="annual">Annually Compounded</option>
+                <option value="monthly">Monthly Compounded</option>
+            </select>
+        </div>
+
+        <button type="button" onclick="calculateInterest()">Calculate</button>
+    </form>
+
+    <div id="results"></div>
+
+    <button onclick="window.print()">Print Result</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
