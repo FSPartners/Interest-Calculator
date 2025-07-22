@@ -6,16 +6,21 @@ body {
   padding: 20px;
 }
 header .header-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
   flex-direction: column;
   text-align: center;
 }
+
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 20px;
+}
+.input-group input,
+.input-group select {
+  max-width: 100%;
+  width: 100%;
 }
 
 .principal-row {
