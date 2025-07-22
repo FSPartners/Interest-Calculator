@@ -83,4 +83,11 @@ footer {
 .sub-heading {
   text-align: center;
   font-size: 1.2em;
+
+.media print {
+  form, .center, #printBtn {
+  display: none;
+  }
+}
+
 }
