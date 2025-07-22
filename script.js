@@ -73,9 +73,18 @@ function closePopup() {
 }
 
 function printPage() {
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
+  const nameField = document.getElementById("name");
+  const emailField = document.getElementById("email");
+  const phoneField = document.getElementById("phone");
+
+  if (!nameField || !emailField || !phoneField) {
+    console.error("One or more input fields not found in the DOM.");
+    return;
+  }
+
+  const name = nameField.value;
+  const email = emailField.value;
+  const phone = phoneField.value;
 
   const formData = new FormData();
   formData.append("name", name);
@@ -89,15 +98,16 @@ function printPage() {
     .then(response => response.json())
     .then(data => {
       if (data.status === "success") {
-        console.log("Data saved successfully");
+        console.log("Form submitted successfully");
       } else {
-        console.error("Error saving data");
+        console.error("Submission failed:", data);
       }
     })
     .catch(error => {
       console.error("Error! Failed to fetch", error);
     });
 }
+
 
 
 
