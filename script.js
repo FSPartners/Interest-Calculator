@@ -66,6 +66,8 @@ document.getElementById('printBtn').addEventListener('click', function () {
   window.print(); // Trigger print dialog
   window.open("https://www.linkedin.com/company/fs-partners-advocates/", "_blank"); // Open LinkedIn in new tab
 });
+const now = new Date();
+document.getElementById("print-date").innerText = `Generated on: ${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
 
 
 // ✅ New print + redirect function (replaces popup logic)
