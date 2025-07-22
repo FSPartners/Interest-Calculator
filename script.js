@@ -77,44 +77,28 @@ function printPage() {
   const email = document.getElementById('userEmail').value.trim();
   const phone = document.getElementById('userPhone').value.trim();
 
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbw4E85h-7YO6_GMr7BnfICvmZJPYespQT1g0fQuOYmyESJBFTEIb6ujNTLJi4TZSiZ1/exec'
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbw4E85h-7YO6_GMr7BnfICvmZJPYespQT1g0fQuOYmyESJBFTEIb6ujNTLJi4TZSiZ1/exec';
 
-  const formData = new FormData();
-  formData.append('name', name);
-  formData.append('email', email);
-  formData.append('phone', phone);
-
-  fetch(scriptURL, { method: 'POST', body: formData })
-    .then(response => {
-      console.log('Success!', response);
-      closePopup(); // close the modal
-      window.print(); // trigger the print dialog
+  fetch(scriptURL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: name,
+      email: email,
+      phone: phone
     })
-    .catch(error => {
-      console.error('Error!', error.message);
-      alert("There was an error sending your details. Please try again.");
-    });
+  })
+  .then(response => {
+    console.log('Success!', response);
+    closePopup(); // Close the modal
+    window.print(); // Trigger print dialog
+  })
+  .catch(error => {
+    console.error('Error!', error.message);
+    alert("There was an error sending your details. Please try again.");
+  });
 }
-function printPage() {
-  const name = document.getElementById('userName').value.trim();
-  const email = document.getElementById('userEmail').value.trim();
-  const phone = document.getElementById('userPhone').value.trim();
 
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbw4E85h-7YO6_GMr7BnfICvmZJPYespQT1g0fQuOYmyESJBFTEIb6ujNTLJi4TZSiZ1/exec'
 
-  const formData = new FormData();
-  formData.append('name', name);
-  formData.append('email', email);
-  formData.append('phone', phone);
-
-  fetch(scriptURL, { method: 'POST', body: formData })
-    .then(response => {
-      console.log('Success!', response);
-      closePopup(); // close the modal
-      window.print(); // trigger the print dialog
-    })
-    .catch(error => {
-      console.error('Error!', error.message);
-      alert("There was an error sending your details. Please try again.");
-    });
-}
