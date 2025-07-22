@@ -73,9 +73,9 @@ function closePopup() {
 }
 
 function printPage() {
-  const nameField = document.getElementById("name");
-  const emailField = document.getElementById("email");
-  const phoneField = document.getElementById("phone");
+  const nameField = document.getElementById("userName");
+  const emailField = document.getElementById("userEmail");
+  const phoneField = document.getElementById("userPhone");
 
   if (!nameField || !emailField || !phoneField) {
     console.error("One or more input fields not found in the DOM.");
@@ -99,6 +99,7 @@ function printPage() {
     .then(data => {
       if (data.status === "success") {
         console.log("Form submitted successfully");
+        window.print(); // or any custom print logic
       } else {
         console.error("Submission failed:", data);
       }
@@ -107,6 +108,7 @@ function printPage() {
       console.error("Error! Failed to fetch", error);
     });
 }
+
 
 
 
