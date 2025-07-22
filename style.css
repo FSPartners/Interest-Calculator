@@ -5,10 +5,12 @@ body {
   color: #043434;
   padding: 20px;
 }
-header .header-content {
-  max-width: 800px;
-  margin: 0 auto;
+.header-content {
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto 20px;
   text-align: center;
 }
 
@@ -30,8 +32,15 @@ header .header-content {
 .logo {
   width: 120px;
   height: auto;
-  display: block;
-  margin: 0 auto;
+  margin-bottom: 10px;
+}
+.title-section h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+.title-section p {
+  font-size: 1em;
+  margin-top: 4px;
 }
 .input-group {
   margin-bottom: 15px;
