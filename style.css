@@ -3,7 +3,9 @@ body {
   font-family: 'Bree Serif', serif;
   background-color: #f4fefd;
   color: #043434;
-  padding: 20px;
+  padding: 10px;
+  margin: 0;
+  overflow-x: hidden;
 }
 .header-content {
   display: flex;
@@ -14,10 +16,10 @@ body {
   text-align: center;
 }
 
-.container {
-  max-width: 800px;
+.container, .header-content {
+  max-width: 700px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 .input-group input,
 .input-group select {
@@ -30,29 +32,29 @@ body {
 }
 
 .logo {
-  width: 200px;
+  width: 250px;
+  max-width: 100%;
   height: auto;
   margin-bottom: 10px;
 }
+
 .title-section h1 {
-  font-size: 2.5em;
+  font-size: 1.8em;
   margin: 0;
 }
 .title-section p {
-  font-size: 1em;
+  font-size: 0.95em;
   margin-top: 4px;
 }
 .input-group {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 input, select {
-  padding: 8px;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 6px;
+  font-size: 14px;
 }
 button {
-  padding: 12px 24px;
+  padding: 10px 18px;
   background: #043434;
   color: #fff;
   border: none;
@@ -110,7 +112,7 @@ button:hover {
 }
 footer {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 
