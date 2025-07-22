@@ -13,6 +13,8 @@ header .header-content {
 .logo {
   width: 120px;
   height: auto;
+  display: block;
+  margin: 0 auto;
 }
 .input-group {
   margin-bottom: 15px;
