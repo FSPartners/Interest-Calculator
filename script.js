@@ -73,41 +73,29 @@ function closePopup() {
 }
 
 function printPage() {
-  const nameField = document.getElementById("userName");
-  const emailField = document.getElementById("userEmail");
-  const phoneField = document.getElementById("userPhone");
+  const name = document.getElementById("userName").value;
+  const email = document.getElementById("userEmail").value;
+  const phone = document.getElementById("userPhone").value;
 
-  if (!nameField || !emailField || !phoneField) {
-    console.error("One or more input fields not found in the DOM.");
-    return;
-  }
-
-  const name = nameField.value;
-  const email = emailField.value;
-  const phone = phoneField.value;
-
-  const formData = new FormData();
+  const formData = new URLSearchParams();
   formData.append("name", name);
   formData.append("email", email);
   formData.append("phone", phone);
 
   fetch("https://script.google.com/macros/s/AKfycbw4E85h-7YO6_GMr7BnfICvmZJPYespQT1g0fQuOYmyESJBFTEIb6ujNTLJi4TZSiZ1/exec", {
     method: "POST",
-    body: formData
+    body: formData,
   })
     .then(response => response.json())
     .then(data => {
-      if (data.status === "success") {
-        console.log("Form submitted successfully");
-        window.print(); // or any custom print logic
-      } else {
-        console.error("Submission failed:", data);
-      }
+      console.log("Success!", data);
+      window.print();
     })
     .catch(error => {
       console.error("Error! Failed to fetch", error);
     });
 }
+
 
 
 
