@@ -1,8 +1,4 @@
 
-html, body {
-  height: 100vh;
-  overflow-y: auto;
-}
 body {
   font-family: 'Bree Serif', serif;
   background-color: #f4fefd;
