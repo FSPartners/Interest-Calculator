@@ -73,32 +73,31 @@ function closePopup() {
 }
 
 function printPage() {
-  const name = document.getElementById('userName').value.trim();
-  const email = document.getElementById('userEmail').value.trim();
-  const phone = document.getElementById('userPhone').value.trim();
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
 
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbw4E85h-7YO6_GMr7BnfICvmZJPYespQT1g0fQuOYmyESJBFTEIb6ujNTLJi4TZSiZ1/exec';
+  const formData = new FormData();
+  formData.append("name", name);
+  formData.append("email", email);
+  formData.append("phone", phone);
 
-  fetch(scriptURL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      name: name,
-      email: email,
-      phone: phone
+  fetch("https://script.google.com/macros/s/AKfycbw4E85h-7YO6_GMr7BnfICvmZJPYespQT1g0fQuOYmyESJBFTEIb6ujNTLJi4TZSiZ1/exec", {
+    method: "POST",
+    body: formData
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data.status === "success") {
+        console.log("Data saved successfully");
+      } else {
+        console.error("Error saving data");
+      }
     })
-  })
-  .then(response => {
-    console.log('Success!', response);
-    closePopup(); // Close the modal
-    window.print(); // Trigger print dialog
-  })
-  .catch(error => {
-    console.error('Error!', error.message);
-    alert("There was an error sending your details. Please try again.");
-  });
+    .catch(error => {
+      console.error("Error! Failed to fetch", error);
+    });
 }
+
 
 
