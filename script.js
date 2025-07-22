@@ -1,4 +1,3 @@
-
 function addRow() {
   const container = document.getElementById('principal-entries');
   const div = document.createElement('div');
@@ -37,21 +36,20 @@ document.getElementById('calculate').addEventListener('click', () => {
     const interestUpto = endDate.toISOString().split("T")[0];
     tableRows.push(`<tr><td>${slNo++}</td><td>₹${principal.toFixed(2)}</td><td>${startDate.toISOString().split("T")[0]}</td><td>${interestUpto}</td><td>₹${interest.toFixed(2)}</td></tr>`);
   });
-const totalPrincipal = Array.from(document.querySelectorAll('.principal'))
-  .reduce((sum, input) => sum + (parseFloat(input.value) || 0), 0);
-const totalClaim = totalPrincipal + totalInterest;
 
-const tableHTML = `<table border="1" cellspacing="0" cellpadding="5">
-  <tr><th>Sl No.</th><th>Amount</th><th>Due Date</th><th>Interest Upto</th><th>Interest</th></tr>
-  ${tableRows.join("")}
-  <tr><td colspan="4"><strong>Total Interest</strong></td><td><strong>₹${totalInterest.toFixed(2)}</strong></td></tr>
-  <tr><td colspan="4"><strong>Total Claim Amount</strong></td><td><strong>₹${totalClaim.toFixed(2)}</strong></td></tr>
-</table>`;
+  const totalPrincipal = Array.from(document.querySelectorAll('.principal'))
+    .reduce((sum, input) => sum + (parseFloat(input.value) || 0), 0);
+  const totalClaim = totalPrincipal + totalInterest;
 
+  const tableHTML = `<table border="1" cellspacing="0" cellpadding="5">
+    <tr><th>Sl No.</th><th>Amount</th><th>Due Date</th><th>Interest Upto</th><th>Interest</th></tr>
+    ${tableRows.join("")}
+    <tr><td colspan="4"><strong>Total Interest</strong></td><td><strong>₹${totalInterest.toFixed(2)}</strong></td></tr>
+    <tr><td colspan="4"><strong>Total Claim Amount</strong></td><td><strong>₹${totalClaim.toFixed(2)}</strong></td></tr>
+  </table>`;
 
   document.getElementById("results").innerHTML = tableHTML;
 });
-
 
 document.getElementById('bankRate').addEventListener('input', () => {
   const bankRate = parseFloat(document.getElementById('bankRate').value);
@@ -64,40 +62,8 @@ document.getElementById('bankRate').addEventListener('input', () => {
 
 document.getElementById('endDate').valueAsDate = new Date();
 
-function openPopup() {
-  document.getElementById('popup').style.display = 'block';
+// ✅ New print + redirect function (replaces popup logic)
+function printAndRedirect() {
+  window.print(); // Trigger browser print dialog
+  window.open("https://www.linkedin.com/company/fs-partners-advocates/", "_blank"); // Open LinkedIn in new tab
 }
-
-function closePopup() {
-  document.getElementById('popup').style.display = 'none';
-}
-
-function printPage() {
-  const name = document.getElementById("userName").value;
-  const email = document.getElementById("userEmail").value;
-  const phone = document.getElementById("userPhone").value;
-
-  const formData = new URLSearchParams();
-  formData.append("name", name);
-  formData.append("email", email);
-  formData.append("phone", phone);
-
-  fetch("https://script.google.com/macros/s/AKfycbw4E85h-7YO6_GMr7BnfICvmZJPYespQT1g0fQuOYmyESJBFTEIb6ujNTLJi4TZSiZ1/exec", {
-    method: "POST",
-    body: formData,
-  })
-    .then(response => response.json())
-    .then(data => {
-      console.log("Success!", data);
-      window.print();
-    })
-    .catch(error => {
-      console.error("Error! Failed to fetch", error);
-    });
-}
-
-
-
-
-
-
