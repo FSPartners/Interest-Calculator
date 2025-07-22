@@ -77,7 +77,7 @@ function printPage() {
   const email = document.getElementById('userEmail').value.trim();
   const phone = document.getElementById('userPhone').value.trim();
 
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbXYZ12345/exec'; // 🔁 Replace with your Web App URL
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbw4E85h-7YO6_GMr7BnfICvmZJPYespQT1g0fQuOYmyESJBFTEIb6ujNTLJi4TZSiZ1/exec'
 
   const formData = new FormData();
   formData.append('name', name);
