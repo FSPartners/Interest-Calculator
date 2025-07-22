@@ -69,7 +69,4 @@ document.getElementById('printBtn').addEventListener('click', function () {
 
 
 // ✅ New print + redirect function (replaces popup logic)
-function printAndRedirect() {
-  window.print(); // Trigger browser print dialog
-  window.open("https://www.linkedin.com/company/fs-partners-advocates/", "_blank"); // Open LinkedIn in new tab
-}
+
