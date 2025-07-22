@@ -21,14 +21,17 @@ body {
   margin: 0 auto;
   padding: 0 10px;
 }
-.input-group input,
-.input-group select,
-.principal-row input {
-  width: 80%; /* reduce width from 100% */
-  max-width: 400px; /* restrict absolute max size */
-  margin-left: 0 auto;
+.input-group label {
   display: block;
+  margin-bottom: 4px;
 }
+
+.input-group input,
+.input-group select {
+  display: block;
+  width: 80%;
+  max-width: 400px;
+  margin-bottom: 15px;
 }
 
 .principal-row {
